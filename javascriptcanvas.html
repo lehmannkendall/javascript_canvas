@@ -33,6 +33,9 @@
 
 <script>
 
+// ------------------------------------------
+// define variables
+
   var canvas = document.querySelector('canvas');
   var ctx = canvas.getContext('2d');
   var x = 0
@@ -41,6 +44,8 @@
   var color = "red";
   var colorPicker = document.querySelector('.color-picker');
 
+// ------------------------------------------
+// define draw function
 
   function draw(){
     ctx.beginPath();
@@ -48,6 +53,9 @@
     ctx.arc(x, y, radius, 0, 2 * Math.PI);
     ctx.fill();
   }
+
+// ------------------------------------------
+// move circle based on mouse location
 
   window.addEventListener('mousemove', function (e) {
     // console.log(e.pageX);
@@ -57,11 +65,17 @@
     draw()
   })
 
+// ------------------------------------------
+// move circle based on touch for phones/tablets
+
   window.addEventListener('touchmove', function (e) {
     x = e.pageX;
     y = e.pageY;
     draw()
   })
+
+// ------------------------------------------
+// changing color/size/clear based on keyboard
 
   window.addEventListener('keyup', function (e){
   // console.log(e.keyCode);
@@ -83,10 +97,18 @@
   draw()
 })
 
-//   colorPicker.addEventListener('change', function (e){
-//     color = e.target.value;
-//     draw()
-// })
+// ------------------------------------------
+// changing color from the color picker
+
+  colorPicker.addEventListener('change', function (e){
+    color = e.target.value;
+    draw()
+  })
+
+  window.addEventListener('orientationchange', function (e){
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    draw()
+  })
 
 
 </script>
