@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Canvas Example</title>
+	<input type="color" class="color-picker">
+	<style type="text/css">
+		canvas{
+			border: 1px solid black;
+			background-color: #f1f1f1;
+			position: relative;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		h1{
+			display: block;
+			position: relative;
+			text-align: center;
+		}
+		.color-picker {
+			margin: 1rem 1rem 0 1rem;
+		}
+	</style>
+
+</head>
+<body>
+<h1>Canvas</h1>
+<canvas id="myCanvas" width="800" height="450">
+  An alternative text describing what your canvas displays.
+</canvas>
+
+<script>
+
+  var canvas = document.querySelector('canvas');
+  var ctx = canvas.getContext('2d');
+  var x = 0
+  var y = 0
+  var radius = 10
+  var color = "red";
+  var colorPicker = document.querySelector('.color-picker');
+
+
+  function draw(){
+    ctx.beginPath();
+    ctx.fillStyle=color;
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+
+  window.addEventListener('mousemove', function (e) {
+    // console.log(e.pageX);
+    // console.log(e.pageY);
+    x = e.pageX;
+    y = e.pageY;
+    draw()
+  })
+
+  window.addEventListener('touchmove', function (e) {
+    x = e.pageX;
+    y = e.pageY;
+    draw()
+  })
+
+  window.addEventListener('keyup', function (e){
+  // console.log(e.keyCode);
+  if (e.keyCode == 66) {
+    color = "blue"
+  } else if (e.keyCode == 71) {
+    color = "green"
+  } else if (e.keyCode == 82) {
+    color = "red"
+  } else if (e.keyCode == 89) {
+    color = "yellow"
+  } else if (e.keyCode == 32) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  } else if (e.keyCode == 38) {
+    radius = radius + 5
+  } else if (e.keyCode == 40 && radius > 5) {
+    radius = radius - 5
+  }
+  draw()
+})
+
+//   colorPicker.addEventListener('change', function (e){
+//     color = e.target.value;
+//     draw()
+// })
+
+
+</script>
+
+</body>
+
+</html>
