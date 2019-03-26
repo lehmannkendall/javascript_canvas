@@ -127,9 +127,9 @@
   })
 
 // ------------------------------------------
-// adjusting size of canvas - responsive (will clear canvas since size is adjusted)
+// adjusting size of canvas (load vs resize)
 
-  window.addEventListener('resize', function (e){
+  window.addEventListener('load', function (e){
     canvas.width = window.innerWidth * 0.8;
     canvas.height = window.innerHeight * 0.8;
     draw()
