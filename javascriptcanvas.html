@@ -119,19 +119,18 @@
   })
 
 // ------------------------------------------
-// clear canvas on mobile with orientation
+// clear canvas on mobile with orientation --- need to get size to change with orientation
 
   window.addEventListener('orientationchange', function (e){
-    canvas.width = window.innerWidth * 0.8;
-    canvas.height = window.innerHeight * 0.8;
-    ctx.clearRect(0, 0);
+    window.location.reload();
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
     draw()
   })
 
 // ------------------------------------------
 // adjusting size of canvas - responsive (will clear canvas since size is adjusted - load vs. resize)
 
-  // window.addEventListener('load', function (e){
+  // window.addEventListener('resize', function (e){
   //   canvas.width = window.innerWidth * 0.8;
   //   canvas.height = window.innerHeight * 0.8;
   //   draw()
