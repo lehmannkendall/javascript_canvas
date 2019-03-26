@@ -13,6 +13,7 @@
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
+      /* margin-bottom: 5rem; */
 		}
 		h1{
 			display: block;
@@ -28,7 +29,7 @@
 <body>
 <h1>Canvas</h1>
 <canvas id="myCanvas" width="800" height="450">
-  An alternative text describing what your canvas displays.
+  Blank canvas for drawing. Can use keyboard to change color (y = yellow, b = blue, r = red, g = green), size (up arrow = larger, down arrow = smaller), and clear the canvas drawing space (spacebar = clear). There is also a color picker to change color to variety of colors.
 </canvas>
 
 <script>
@@ -38,9 +39,9 @@
 
   var canvas = document.querySelector('canvas');
   var ctx = canvas.getContext('2d');
-  var x = 0
-  var y = 0
-  var radius = 10
+  var x = 0;
+  var y = 0;
+  var radius = 20;
   var color = "red";
   var colorPicker = document.querySelector('.color-picker');
 
@@ -118,7 +119,7 @@
 
   window.addEventListener('resize', function (e){
     canvas.width = window.innerWidth * 0.8;
-    // canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight * 0.8;
     draw()
   })
 
