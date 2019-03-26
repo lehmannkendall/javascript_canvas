@@ -13,7 +13,6 @@
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-      /* margin-bottom: 5rem; */
 		}
 		h1{
 			display: block;
@@ -42,7 +41,8 @@
   var x = 0;
   var y = 0;
   var radius = 20;
-  var color = "red";
+  // var color = "red";
+  var color = "#ff443a";
   var colorPicker = document.querySelector('.color-picker');
   canvas.width = window.innerWidth * 0.8;
   canvas.height = window.innerHeight * 0.8;
@@ -83,13 +83,17 @@
   window.addEventListener('keyup', function (e){
   // console.log(e.keyCode);
   if (e.keyCode == 66) {
-    color = "blue"
+    // color = "blue"
+    color = "#9fc2fc"
   } else if (e.keyCode == 71) {
-    color = "green"
+    // color = "green"
+    color = "#aef794"
   } else if (e.keyCode == 82) {
-    color = "red"
+    // color = "red"
+    color = "#ff443a"
   } else if (e.keyCode == 89) {
-    color = "yellow"
+    // color = "yellow"
+    color = "#fcf18d"
   } else if (e.keyCode == 32) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
   } else if (e.keyCode == 38) {
@@ -109,7 +113,7 @@
   })
 
 // ------------------------------------------
-// clear canvas on mobile with orientation 
+// clear canvas on mobile with orientation
 
   window.addEventListener('orientationchange', function (e){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -117,7 +121,7 @@
   })
 
 // ------------------------------------------
-// adjusting size of canvas - responsive
+// adjusting size of canvas - responsive (will clear canvas since size is adjusted)
 
   window.addEventListener('resize', function (e){
     canvas.width = window.innerWidth * 0.8;
