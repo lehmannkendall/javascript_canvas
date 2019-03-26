@@ -123,15 +123,13 @@
 
   window.addEventListener('orientationchange', function (e){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    canvas.width = window.innerWidth * 0.8;
-    canvas.height = window.innerHeight * 0.8;
     draw()
   })
 
 // ------------------------------------------
-// adjusting size of canvas (load vs resize)
+// adjusting size of canvas - responsive (will clear canvas since size is adjusted)
 
-  window.addEventListener('load', function (e){
+  window.addEventListener('resize', function (e){
     canvas.width = window.innerWidth * 0.8;
     canvas.height = window.innerHeight * 0.8;
     draw()
