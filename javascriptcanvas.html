@@ -105,8 +105,20 @@
     draw()
   })
 
+// ------------------------------------------
+// clear canvas on mobile with orientation
+
   window.addEventListener('orientationchange', function (e){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    draw()
+  })
+
+// ------------------------------------------
+// adjusting size of canvas
+
+  window.addEventListener('resize', function (e){
+    canvas.width = window.innerWidth * 0.8;
+    // canvas.height = window.innerHeight;
     draw()
   })
 
