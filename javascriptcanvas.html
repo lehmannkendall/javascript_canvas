@@ -44,8 +44,8 @@
   var radius = 20;
   var color = "red";
   var colorPicker = document.querySelector('.color-picker');
-  canvas.width = window.innerWidth * 0.8;
-  canvas.height = window.innerHeight * 0.8;
+  // canvas.width = window.innerWidth * 0.8;
+  // canvas.height = window.innerHeight * 0.8;
 
 // ------------------------------------------
 // define draw function
@@ -113,17 +113,19 @@
 
   window.addEventListener('orientationchange', function (e){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    canvas.width = window.innerWidth * 0.8;
+    // canvas.height = window.innerHeight * 0.8;
     draw()
   })
 
 // ------------------------------------------
 // adjusting size of canvas
 
-  // window.addEventListener('resize', function (e){
-  //   canvas.width = window.innerWidth * 0.8;
-  //   canvas.height = window.innerHeight * 0.8;
-  //   draw()
-  // })
+  window.addEventListener('resize', function (e){
+    canvas.width = window.innerWidth * 0.8;
+    canvas.height = window.innerHeight * 0.8;
+    draw()
+  })
 
 
 </script>
