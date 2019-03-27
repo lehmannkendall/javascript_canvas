@@ -72,8 +72,8 @@
 // move circle based on touch for phones/tablets
 
   window.addEventListener('touchmove', function (e) {
-    x = e.offsetX;
-    y = e.offsetY;
+    x = e.clientX;
+    y = e.clientY;
     draw()
   })
 
