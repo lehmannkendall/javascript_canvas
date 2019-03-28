@@ -9,14 +9,12 @@
 		canvas{
 			border: 1px solid black;
 			background-color: #f1f1f1;
-			position: relative;
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
 		}
 		h1{
 			display: block;
-			position: relative;
 			text-align: center;
 		}
 		.color-picker {
@@ -65,15 +63,21 @@
     // console.log(e.pageY);
     x = e.offsetX;
     y = e.offsetY;
+    // x = e.pageX;
+    // y = e.pageY;
     draw()
   })
+
+// offsetX and offsetY are relative to the parent container, whereas pageX and pageY are relative to the document
 
 // ------------------------------------------
 // move circle based on touch for phones/tablets
 
   window.addEventListener('touchmove', function (e) {
-    x = e.pageX;
-    y = e.pageY;
+    // x = e.pageX;
+    // y = e.pageY;
+    x = e.touches[0].pageX - e.touches[0].target.offsetLeft;
+    y = e.touches[0].pageY - e.touches[0].target.offsetTop;
     draw()
   })
 
